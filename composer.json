@@ -1,7 +1,10 @@
 {
     "name": "mbezhanov/laravel-faker-provider-collection",
     "description": "A collection of custom Faker providers for your Laravel applications",
-    "keywords": ["faker", "laravel"],
+    "keywords": [
+        "faker",
+        "laravel"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -12,7 +15,7 @@
     ],
     "require": {
         "mbezhanov/faker-provider-collection": "^2.0",
-        "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0"
+        "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0|^10.0"
     },
     "autoload": {
         "psr-4": {
