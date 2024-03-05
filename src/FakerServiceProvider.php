@@ -11,8 +11,13 @@ class FakerServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->app->singleton(Generator::class, function () {
-            $faker = Factory::create();
+        if ($this->app->bound('config')) {
+            $locale ??= $this->app->make('config')->get('app.faker_locale');
+        }
+        $locale ??= 'en_US';
+        $abstract = Generator::class.':'.$locale;
+        $this->app->singleton($abstract, function () use ($locale) {
+            $faker = Factory::create($locale);
             ProviderCollectionHelper::addAllProvidersTo($faker);
 
             return $faker;
