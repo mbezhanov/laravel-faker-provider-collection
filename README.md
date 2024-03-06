@@ -17,11 +17,11 @@ Add the `FakerServiceProvider` class to the `providers` array in your `./app/con
 ```php
 'providers' => ServiceProvider::defaultProviders()->merge([
     // other provider definitions
-    ...(class_exists($class=Bezhanov\Faker\Laravel\FakerServiceProvider::class) ? [$class] : [])
+    class_exists($class=Bezhanov\Faker\Laravel\FakerServiceProvider::class) ? $class : null,
 ])->toArray(),
 ```
 
-This will allow you to autoload the service provider, while keeping it a `require-dev` dependency.
+This allows you to autoload the service provider, while keeping it a `require-dev` dependency.
 
 At that point, you should be able to use the all the additional faker providers bundled with the library in your [Model Factories](https://laravel.com/docs/10.x/seeding#using-model-factories)
 
