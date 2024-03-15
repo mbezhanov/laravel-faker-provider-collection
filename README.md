@@ -17,7 +17,7 @@ Add the `FakerServiceProvider` class to the `providers` array in your `./app/con
 ```php
 'providers' => ServiceProvider::defaultProviders()->merge([
     // other provider definitions
-    class_exists($class=Bezhanov\Faker\Laravel\FakerServiceProvider::class) ? $class : null,
+    ...(class_exists($class=Bezhanov\Faker\Laravel\FakerServiceProvider::class) ? [$class] : [])
 ])->toArray(),
 ```
 
