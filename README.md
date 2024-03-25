@@ -12,18 +12,16 @@ Add the provider to your Laravel project with [Composer](https://getcomposer.org
 composer require --dev mbezhanov/laravel-faker-provider-collection
 ```
 
-Add the `FakerServiceProvider` class to the `providers` array in your `./app/config.php` file:
+Add the `FakerServiceProvider` class to your `./bootstrap/providers.php` file:
 
 ```php
-'providers' => ServiceProvider::defaultProviders()->merge([
+return [
     // other provider definitions
-    ...(class_exists($class=Bezhanov\Faker\Laravel\FakerServiceProvider::class) ? [$class] : [])
-])->toArray(),
+    Bezhanov\Faker\Laravel\FakerServiceProvider::class,
+];
 ```
 
-This allows you to autoload the service provider, while keeping it a `require-dev` dependency.
-
-At that point, you should be able to use the all the additional faker providers bundled with the library in your [Model Factories](https://laravel.com/docs/10.x/seeding#using-model-factories)
+At this point, you should be able to use the all the additional faker providers bundled with the library in your [Model Factories](https://laravel.com/docs/11.x/seeding#using-model-factories)
 
 In example, assuming you have defined the following model factory:
 
@@ -56,8 +54,8 @@ You should be able to do:
 
 ```bash
 /app # php artisan tinker
-Psy Shell v0.12.0 (PHP 8.3.3 — cli) by Justin Hileman
-> \App\Models\Student::factory(5)->make();
+Psy Shell v0.12.2 (PHP 8.3.4 — cli) by Justin Hileman
+> \App\Student::factory(5)->make();
 = Illuminate\Database\Eloquent\Collection {#6008
     all: [
       App\Models\Student {#6065

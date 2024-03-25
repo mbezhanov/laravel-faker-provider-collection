@@ -15,7 +15,7 @@
     ],
     "require": {
         "mbezhanov/faker-provider-collection": "^2.0",
-        "illuminate/support": "^10.0",
+        "illuminate/support": "^10.0|^11.0",
         "php": "^8.1"
     },
     "autoload": {
